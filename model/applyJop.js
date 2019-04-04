@@ -3,11 +3,19 @@ Joi.objectId=require('joi-objectid')(Joi);
 const mongoose=require('mongoose');
 const applyJobschema=new mongoose.Schema({
     user:{type :new mongoose.Schema({
-        name:{type:String,required:true,minlength:3,maxlength:255},
-        email:{type:String,required:true,minlength:3,maxlength:255,unique:true},
-        phone:{type:String,minlength:5,maxlength:50,required:true}}, {strict: true}) },
+        // username:{type:String,required:true,minlength:3,maxlength:255},
+        // email:{type:String,required:true,minlength:3,maxlength:255,unique:true},
+        // phone:{type:String,minlength:5,maxlength:50,required:true}}, {strict: true}) },
+
+        username:{type:String},
+        email:{type:String},
+        phone:{type:String },
+    })},
     job:{type:new mongoose.Schema({
-        name:{type:String,maxlength:255,minLength:5,required:true}
+        name:{type:String,maxlength:255,minLength:5,required:true},
+        userWriterId:{type:mongoose.Types.ObjectId},
+        userWriterName:{type:String},
+        userWriterEmail:{type:String}
     },{strict: true})},
     applyDate:{type:Date,default:Date.now,required:true},
     gender:{type:String,enum:['Male','Female'],required:true},
@@ -19,13 +27,14 @@ const applyJobschema=new mongoose.Schema({
     nationality:{type:String,required:true,minlength:3,maxlength:255},
     stateSociety:{type:String,required:true,minlength:3,maxlength:255},
     experiance:{
-       isExperiance:{type:Boolean} ,
+       isExperiance:{type:Boolean,default:false} ,
        yearOfEXperiance:{type:Number},
        monthOfExperiance:{type:Number},},
     company:{
         companyName:{type:String,required:true,minlength:3,maxlength:255},
         companyDepartment:{type:String,minlength:3,maxlength:255}, },
     education:{
+        isEducation:{type:Boolean,default:false},
         educationName:{type:String,minlength:3,maxlength:255},
         imageOfEducationDegree:{type:String,minlength:3,maxlength:255},
         educationspecialization:{type:String,minlength:3,maxlength:255},},
@@ -57,11 +66,13 @@ const applyJobschema=new mongoose.Schema({
 
 });
 applyJobschema.index({"education.educationName":'text'});
+applyJobschema.index({"job.name":1});
+applyJobschema.index({"user.username":1});
 const ApplyJob=mongoose.model('applyJob',applyJobschema);
 function validate(applyJob)
 {
     const schema={
-              userId:Joi.objectId().required(),
+             // userId:Joi.objectId().required(),
               jobId:Joi.objectId().required(),
               gender:Joi.string().required(),
               birthday:{

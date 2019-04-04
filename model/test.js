@@ -15,6 +15,31 @@
 //     "note":"there are ....."
 
 // }
+/////////////add user
+// {
+//     "username":"ahmad",
+//     "password":"12345",
+//    "email":"ahmad1986@gmail.com",
+//    "phone":"6562451039",
+//    "companyName":"google",
+//    "companyUrl":"www.google.com",
+//    "companyLogoUrl":"www.Logo.com",
+//    "companyEmail":"mr@gmail.com",
+//    "rolesId":["5c249cd04c27ae34a8d57947"]
+
+// }
+// {
+//     "username":"abdal",
+//     "password":"12345",
+//    "email":"abdal@gmail.com",
+//    "phone":"6562451039",
+//    "companyName":"google",
+//    "companyUrl":"www.google.com",
+//    "companyLogoUrl":"www.Logo.com",
+//    "companyEmail":"mr@gmail.com",
+//    "rolesId":["5c249cd04c27ae34a8d57947"]
+
+// }
 ///////////////////////////////////applayJop
 // {
 //     "userId":"5c20f911c175b71b4c349bdd",

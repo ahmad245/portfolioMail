@@ -5,9 +5,10 @@ const mongoose=require('mongoose');
 const jobSchema=new mongoose.Schema({
     name:{type:String,maxlength:255,minLength:5,required:true},
     content:{type:String,maxlength:255,minLength:5,required:true},
+    jobImageUrl:{type:String,minlength:3,maxlength:255},
     category:{type:categorySchema},
     user:{type:new mongoose.Schema({
-        name:{type:String,minlength:3,maxlength:255,required:true},
+        username:{type:String,minlength:3,maxlength:255,required:true},
         email:{type:String,minlength:3,maxlength:255,required:true},
         phone:{type:String,minlength:5,maxlength:50,required:true},    
         companyName:{type:String,minlength:3,maxlength:255},
@@ -62,7 +63,8 @@ function validate(job)
         name:Joi.string().min(5).max(255).required(),
         content:Joi.string().min(5).max(255).required(),
         categoryId:Joi.objectId().required(),
-        userId:Joi.objectId().required(),
+        jobImageUrl:Joi.string().min(5).max(255),
+       // userId:Joi.objectId().required(),
         numberOfWanted:Joi.number().required(),
         workAt:Joi.string().min(3).max(255).required(),
         position:Joi.string().min(3).max(255).required(),

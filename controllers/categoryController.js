@@ -14,10 +14,10 @@ module.exports.post=async(req,res)=>{
     if(error) return res.status(400).send(error.details[0].message);
     // const category=new Category({
     //     name:req.body.name,
-    //     description:req.body.description
+    //     description:req.body.description 
     // });
-    const category=new Category();
-    Object.assign(category,req.body);
+    const category=new Category(req.body);
+  //  Object.assign(category,req.body);
    
     await category.save();
     res.send(category);
