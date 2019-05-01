@@ -1,3 +1,5 @@
 {
-    "secretKey":"job_demo"
+    "secretKey":"job_demo",
+    "email":"ahmad_email",
+    "pass":"ahmad_password"
 }

@@ -1,3 +1,5 @@
 {
-    "secretKey":""
+    "secretKey":"",
+    "email":"",
+    "pass":""
 }

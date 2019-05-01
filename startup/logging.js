@@ -6,7 +6,7 @@ module.exports=function()
 {
     
     winston.add(winston.transports.File, { filename:'logfile.log'});
-    winston.add(winston.transports.MongoDB,{ db: "mongodb://localhost/JobOffer", level: "info"});
+  //  winston.add(winston.transports.MongoDB,{ db: "mongodb://localhost/contactForm", level: "info"});
 
     winston.handleExceptions(
         new winston.transports.Console({colorize:true,prettyPrint:true}),
